@@ -200,4 +200,5 @@ class StaticModel(object):
                 optimizer, use_bf16_guard=False, use_pure_bf16=pure_bf16)
 
         self.optimizer = optimizer
-        self.optimizer.minimize(self.cost)
+        self.optimizer.minimize(
+            self.cost, startup_program=paddle.static.default_startup_program())
